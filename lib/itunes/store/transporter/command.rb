@@ -99,6 +99,13 @@ module ITunes
           end
         end
 
+        class ModeWithoutShortname < Mode
+          def create_transporter_options(optz)
+            optz.delete :shortname
+            super
+          end
+        end
+
         class BatchMode < Mode
           BatchOption = Optout::Option.create(:package, "-f", :required => true, :validator => Optout::Dir.exists)
           PackageOption = Optout::Option.create(:package, "-f", :required => true, :validator => Optout::Dir.exists.named(/\.itmsp\z/))

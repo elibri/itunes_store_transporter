@@ -575,3 +575,29 @@ describe ITunes::Store::Transporter::Command::Version do
     end
   end
 end
+
+describe ITunes::Store::Transporter::Command::Tickets do
+  subject { described_class.new({}) }
+
+  it_behaves_like "a transporter mode"
+  let(:options) { create_options }
+  its(:mode) { should == "queryTickets" }
+
+  describe "#run" do
+    it "returns unparsed xml with tickets list" do
+      mock_output(:stdout => "stdout.tickets")
+      subject.run(options).should == <<-XML.chomp
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tickets>
+    <ticket>
+        <ticketId>1111</ticketId>
+        <contentTicketType>Book Asset</contentTicketType>
+        <contentAdamId>11112222</contentAdamId>
+        <contentVendorId>1234567890</contentVendorId>
+        <fakeTag>There will be more xml data for each ticket</fakeTag>
+    </ticket>
+</tickets>
+XML
+    end
+  end
+end

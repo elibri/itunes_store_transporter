@@ -200,7 +200,7 @@ module ITunes
           end
         end
 
-        %w|lookup providers schema status version|.each do |command|
+        %w|lookup providers schema status version tickets|.each do |command|
           define_method(command) { |*options| run_command(command, options.shift) }
         end
 

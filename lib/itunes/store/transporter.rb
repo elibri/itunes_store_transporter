@@ -6,6 +6,7 @@ require "itunes/store/transporter/command/status"
 require "itunes/store/transporter/command/upload"
 require "itunes/store/transporter/command/verify"
 require "itunes/store/transporter/command/version"
+require "itunes/store/transporter/command/tickets"
 
 module ITunes
   module Store

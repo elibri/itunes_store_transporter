@@ -3,3 +3,15 @@ success: |
 
     1 package was uploaded successfully:
     	/home/sshaw/123123123.itmsp
+
+tickets: |
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <tickets>
+      <ticket>
+          <ticketId>1111</ticketId>
+          <contentTicketType>Book Asset</contentTicketType>
+          <contentAdamId>11112222</contentAdamId>
+          <contentVendorId>1234567890</contentVendorId>
+          <fakeTag>There will be more xml data for each ticket</fakeTag>
+      </ticket>
+  </tickets>

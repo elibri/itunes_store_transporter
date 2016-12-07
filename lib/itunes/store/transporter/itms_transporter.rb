@@ -204,6 +204,12 @@ module ITunes
           define_method(command) { |*options| run_command(command, options.shift) }
         end
 
+        def status(options)
+          options ||= {}
+          command = options.delete(:history) ? Command::StatusAll : Command::Status
+          command.new(@config, @defaults).run(create_options(options))
+        end
+
         private
 
         def run_command(name, options)
